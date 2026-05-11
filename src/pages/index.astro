@@ -1,0 +1,115 @@
+---
+const resources = [
+  {
+    label: 'Join Server',
+    url: 'https://server.arizonastateroleplay.com'
+  },
+  {
+    label: 'Website',
+    url: 'https://arizonastateroleplay.com'
+  },
+  {
+    label: 'CAD',
+    url: 'https://cad.arizonastateroleplay.com'
+  },
+  {
+    label: 'Dispatch',
+    url: 'http://dispatch.arizonastateroleplay.com:7777'
+  }
+]
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arizona State Roleplay</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #0f172a;
+        color: white;
+      }
+
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 2rem;
+        background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)),
+          url('https://cdn.discordapp.com/attachments/1502857371620343838/1503168523961106583/3D-Mockup.jpg?ex=6a025e47&is=6a010cc7&hm=7e85983f22aaf8e7a0e7c7ee9ac92bb17bb32f76e9f273fde432b237cece854f&');
+        background-size: cover;
+        background-position: center;
+      }
+
+      .container {
+        max-width: 800px;
+      }
+
+      .logo {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        margin-bottom: 1rem;
+      }
+
+      h1 {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        font-size: 1.2rem;
+        opacity: .9;
+      }
+
+      .buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+        margin-top: 2rem;
+      }
+
+      a.button {
+        padding: 1rem 2rem;
+        border-radius: 12px;
+        text-decoration: none;
+        background: #f59e0b;
+        color: black;
+        font-weight: bold;
+        transition: .2s ease;
+      }
+
+      a.button:hover {
+        transform: translateY(-2px);
+      }
+    </style>
+  </head>
+
+  <body>
+    <section class="hero">
+      <div class="container">
+        <img
+          class="logo"
+          src="https://cdn.discordapp.com/attachments/1502857371620343838/1503168194612035624/Arizona_.gif?ex=6a025df9&is=6a010c79&hm=e300e839fc23d2cb6d3e130fd36d8208304709940a35338eb80770c74c1a727f&"
+          alt="ASRP Logo"
+        />
+
+        <h1>Arizona State Roleplay</h1>
+        <p>Professional FiveM roleplay experience for Arizona communities.</p>
+
+        <div class="buttons">
+          {resources.map((resource) => (
+            <a class="button" href={resource.url} target="_blank">
+              {resource.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
