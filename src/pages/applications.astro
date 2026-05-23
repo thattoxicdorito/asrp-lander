@@ -1,0 +1,157 @@
+---
+const appOptions = [
+  {
+    label: 'Staff Applications',
+    value: 'staff'
+  }
+]
+let selected = ''
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Applications - Arizona State Roleplay</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        min-height: 100%;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100%;
+        font-family: Arial, sans-serif;
+        background: #0f172a;
+        color: white;
+        overflow-x: hidden;
+      }
+
+      .hero {
+        min-height: 100svh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: clamp(1rem, 4vw, 4rem);
+        background: linear-gradient(rgba(0,0,0,.72), rgba(0,0,0,.72)),
+          url('https://dedisystems.b-cdn.net/azsrp/3D-Mockup.jpg');
+        background-size: cover;
+        background-position: center;
+      }
+
+      .container {
+        width: min(100%, 960px);
+        margin: 0 auto;
+        padding: clamp(1rem, 3vw, 2rem);
+      }
+
+      h1 {
+        font-size: clamp(2rem, 6vw, 4rem);
+        margin: 0 0 1rem;
+      }
+
+      .select-wrap {
+        display: inline-flex;
+        flex-direction: column;
+        gap: .75rem;
+        width: min(100%, 420px);
+        margin: 0 auto 1.5rem;
+      }
+
+      select,
+      button {
+        width: 100%;
+        min-height: 50px;
+        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,.15);
+        background: rgba(15,23,42,.85);
+        color: white;
+        padding: .85rem 1rem;
+        font-size: 1rem;
+      }
+
+      button {
+        cursor: pointer;
+      }
+
+      button:hover {
+        transform: translateY(-1px);
+      }
+
+      iframe {
+        width: 100%;
+        min-height: 80vh;
+        border: none;
+        border-radius: 8px;
+      }
+
+      .iframe-wrap {
+        margin-top: 1.5rem;
+      }
+
+      .back-link {
+        display: inline-block;
+        margin-bottom: 1.5rem;
+        color: #f59e0b;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      @media (max-width: 520px) {
+        .hero {
+          align-items: flex-start;
+          padding-top: 12vh;
+          background-position: center top;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <section class="hero">
+      <div class="container">
+        <a class="back-link" href="/">← Back to home</a>
+        <h1>Applications</h1>
+        <div class="select-wrap">
+          <label for="applicationType">Choose an application</label>
+          <select id="applicationType">
+            <option value="">Select an option</option>
+            {appOptions.map((option) => (
+              <option value={option.value}>{option.label}</option>
+            ))}
+          </select>
+          <button type="button" id="loadApplicationButton">
+            Load application
+          </button>
+        </div>
+
+        <div id="applicationEmbed" class="iframe-wrap" style="display: none;">
+          <iframe
+            src="https://guildbase.gg/embed/apply/arizona-state-roleplay/staff-team"
+            allow="clipboard-read; clipboard-write"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <script type="module">
+      const select = document.getElementById('applicationType');
+      const button = document.getElementById('loadApplicationButton');
+      const embed = document.getElementById('applicationEmbed');
+      select.addEventListener('change', () => {
+        embed.style.display = select.value === 'staff' ? 'block' : 'none';
+      });
+      button.addEventListener('click', () => {
+        if (select.value === 'staff') {
+          embed.style.display = 'block';
+        }
+      });
+    </script>
+  </body>
+</html>
